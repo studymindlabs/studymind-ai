@@ -1,8 +1,12 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { PageContainer } from "@/components/layout/page-container";
+
 import {
   DashboardHeader,
   DashboardOverview,
+  ProgressSection,
+  ActivitySection,
+  ContinueLearning,
 } from "@/components/features/dashboard";
 
 export default function HomePage() {
@@ -15,6 +19,18 @@ export default function HomePage() {
         />
 
         <DashboardOverview />
+
+        <div className="mt-8">
+          <ProgressSection />
+        </div>
+
+        <div className="mt-10">
+          <ActivitySection />
+        </div>
+
+        <div className="mt-10">
+          <ContinueLearning />
+        </div>
       </PageContainer>
     </MainLayout>
   );
