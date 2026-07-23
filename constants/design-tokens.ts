@@ -1,78 +1,45 @@
-export const COLORS = {
-  primary: "#2563EB",
-  primaryHover: "#1D4ED8",
+export const designTokens = {
+  colors: {
+    primary: "#2563EB",
+    primaryHover: "#1D4ED8",
 
-  secondary: "#7C3AED",
+    secondary: "#E5E7EB",
+    secondaryHover: "#D1D5DB",
 
-  success: "#22C55E",
-  warning: "#F59E0B",
-  error: "#EF4444",
+    success: "#16A34A",
+    danger: "#DC2626",
 
-  background: "#F8FAFC",
-  surface: "#FFFFFF",
+    white: "#FFFFFF",
+    black: "#111827",
 
-  textPrimary: "#0F172A",
-  textSecondary: "#64748B",
+    border: "#D1D5DB",
 
-  border: "#E2E8F0",
-};
+    text: {
+      primary: "#111827",
+      secondary: "#6B7280",
+      inverse: "#FFFFFF",
+    },
+  },
 
-export const RADIUS = {
-  sm: "8px",
-  md: "12px",
-  lg: "16px",
-  xl: "20px",
-};
+  radius: {
+    sm: "0.375rem",
+    md: "0.5rem",
+    lg: "0.75rem",
+    xl: "1rem",
+  },
 
-export const SPACING = {
-  xs: "4px",
-  sm: "8px",
-  md: "16px",
-  lg: "24px",
-  xl: "32px",
-  xxl: "48px",
-};
-
-export const SHADOWS = {
-  sm: "0 1px 3px rgba(0,0,0,0.08)",
-  md: "0 4px 12px rgba(0,0,0,0.10)",
-  lg: "0 10px 25px rgba(0,0,0,0.12)",
-};export const TYPOGRAPHY = {
-  fontFamily: {
-    sans: "var(--font-geist-sans)",
-    mono: "var(--font-geist-mono)",
+  spacing: {
+    xs: "0.25rem",
+    sm: "0.5rem",
+    md: "1rem",
+    lg: "1.5rem",
+    xl: "2rem",
   },
 
   fontSize: {
-    xs: "12px",
-    sm: "14px",
-    base: "16px",
-    lg: "18px",
-    xl: "20px",
-    "2xl": "24px",
-    "3xl": "30px",
-    "4xl": "36px",
-    "5xl": "48px",
+    sm: "0.875rem",
+    md: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
   },
-
-  fontWeight: {
-    regular: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-  },
-};
-
-export const BREAKPOINTS = {
-  mobile: "640px",
-  tablet: "768px",
-  laptop: "1024px",
-  desktop: "1280px",
-  wide: "1536px",
-};
-
-export const TRANSITIONS = {
-  fast: "150ms",
-  normal: "250ms",
-  slow: "400ms",
-};
+} as const;
