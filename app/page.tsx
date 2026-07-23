@@ -1,26 +1,20 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { PageContainer } from "@/components/layout/page-container";
-import { Button } from "@/components/ui/button/button";
+import {
+  DashboardHeader,
+  DashboardOverview,
+} from "@/components/features/dashboard";
 
 export default function HomePage() {
   return (
     <MainLayout>
       <PageContainer>
-        <div className="space-y-6">
-          <div>
-            <h1 className="text-4xl font-bold">
-              Welcome to StudyMind AI
-            </h1>
+        <DashboardHeader
+          title="Dashboard"
+          subtitle="Welcome back! Continue your learning journey."
+        />
 
-            <p className="mt-2 text-gray-400">
-              AI Powered Learning Platform for Bangladesh
-            </p>
-          </div>
-
-          <Button>
-            Get Started
-          </Button>
-        </div>
+        <DashboardOverview />
       </PageContainer>
     </MainLayout>
   );
