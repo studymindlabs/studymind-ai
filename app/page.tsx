@@ -7,6 +7,7 @@ import {
   ProgressSection,
   ActivitySection,
   ContinueLearning,
+  AiTutor,
 } from "@/components/features/dashboard";
 
 export default function HomePage() {
