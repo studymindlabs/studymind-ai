@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 
 import {
-  createSession,
+  createToken,
   setSessionCookie,
 } from "@/lib/auth";
 
@@ -45,7 +45,7 @@ export async function loginAction(
     };
   }
 
-  const token = await createSession({
+  const token = await createToken({
     userId: result.user.id,
     email: result.user.email,
     role: result.user.role,

@@ -1,38 +1,20 @@
-import { SignJWT, jwtVerify } from "jose";
+"use server";
 
-const secret = new TextEncoder().encode(
-  process.env.JWT_SECRET!
-);
+import { cookies } from "next/headers";
 
-export type SessionPayload = {
-  userId: string;
-  email: string;
-  role: "STUDENT" | "ADMIN";
-};
+import { verifyToken } from "./jwt";
 
-export async function createSession(
-  payload: SessionPayload
-) {
-  return await new SignJWT(payload)
-    .setProtectedHeader({
-      alg: "HS256",
-    })
-    .setIssuedAt()
-    .setExpirationTime("7d")
-    .sign(secret);
-}
+const SESSION_COOKIE = "studymind_session";
 
-export async function verifySession(
-  token: string
-) {
-  try {
-    const { payload } = await jwtVerify(
-      token,
-      secret
-    );
+export async function getSession() {
+  const cookieStore = await cookies();
 
-    return payload as SessionPayload;
-  } catch {
+  const token =
+    cookieStore.get(SESSION_COOKIE)?.value;
+
+  if (!token) {
     return null;
   }
+
+  return await verifyToken(token);
 }
