@@ -1,21 +1,63 @@
 "use client";
 
 import Link from "next/link";
-import { LucideIcon } from "lucide-react";
+
+import {
+  NotebookPen,
+  FileText,
+  Brain,
+  Layers3,
+  MessageSquare,
+  BookOpen,
+} from "lucide-react";
+
+type IconName =
+  | "notes"
+  | "summary"
+  | "quiz"
+  | "flashcards"
+  | "chat"
+  | "courses";
 
 type QuickActionProps = {
   title: string;
   description: string;
   href: string;
-  icon: LucideIcon;
+  icon: IconName;
 };
 
 export default function QuickAction({
   title,
   description,
   href,
-  icon: Icon,
+  icon,
 }: QuickActionProps) {
+
+  const Icon = (() => {
+    switch (icon) {
+      case "notes":
+        return NotebookPen;
+
+      case "summary":
+        return FileText;
+
+      case "quiz":
+        return Brain;
+
+      case "flashcards":
+        return Layers3;
+
+      case "chat":
+        return MessageSquare;
+
+      case "courses":
+        return BookOpen;
+
+      default:
+        return NotebookPen;
+    }
+  })();
+
   return (
     <Link
       href={href}
@@ -33,7 +75,7 @@ export default function QuickAction({
         hover:shadow-xl
       "
     >
-      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600/10 text-blue-500 group-hover:bg-blue-600 group-hover:text-white">
+      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600/10 text-blue-500 transition-all group-hover:bg-blue-600 group-hover:text-white">
         <Icon size={24} />
       </div>
 

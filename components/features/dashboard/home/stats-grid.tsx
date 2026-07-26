@@ -1,10 +1,3 @@
-import {
-  NotebookPen,
-  Brain,
-  BookOpen,
-  Flame,
-} from "lucide-react";
-
 import StatCard from "./stat-card";
 
 export default function StatsGrid() {
@@ -13,30 +6,31 @@ export default function StatsGrid() {
 
       <StatCard
         title="AI Notes"
-        value="128"
+        value={128}
         subtitle="+12 today"
-        icon={NotebookPen}
+        icon="NotebookPen"
       />
 
       <StatCard
         title="Quiz Accuracy"
-        value="94%"
+        value={94}
+        suffix="%"
         subtitle="+3%"
-        icon={Brain}
+        icon="Brain"
       />
 
       <StatCard
         title="Courses"
-        value="8"
+        value={8}
         subtitle="2 active"
-        icon={BookOpen}
+        icon="BookOpen"
       />
 
       <StatCard
         title="Learning Streak"
-        value="15"
+        value={15}
         subtitle="Keep going!"
-        icon={Flame}
+        icon="Flame"
       />
 
     </section>
