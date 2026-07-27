@@ -1,29 +1,38 @@
 "use client";
 
-import { SlidersHorizontal } from "lucide-react";
+const filters = [
+  "All",
+  "Recent",
+  "Favorites",
+  "Archived",
+];
 
-export default function NotesFilters() {
+export default function NotesFilter() {
   return (
-    <button
-      className="
-        flex
-        items-center
-        gap-2
-        rounded-2xl
-        border
-        border-zinc-800
-        bg-zinc-900/60
-        px-5
-        py-3
-        text-sm
-        text-zinc-300
-        transition-all
-        hover:border-blue-500
-      "
-    >
-      <SlidersHorizontal size={18} />
+    <div className="flex flex-wrap gap-3">
 
-      Filters
-    </button>
+      {filters.map((filter, index) => (
+        <button
+          key={filter}
+          className={`
+            rounded-lg
+            border
+            px-4
+            py-2
+            text-sm
+            transition-all
+
+            ${
+              index === 0
+                ? "border-blue-500 bg-blue-600 text-white"
+                : "border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-white"
+            }
+          `}
+        >
+          {filter}
+        </button>
+      ))}
+
+    </div>
   );
 }

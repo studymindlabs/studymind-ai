@@ -1,5 +1,6 @@
+"use client";
+
 import { ReactNode } from "react";
-import NotesSidebar from "./notes-sidebar";
 
 type NotesLayoutProps = {
   children: ReactNode;
@@ -9,12 +10,8 @@ export default function NotesLayout({
   children,
 }: NotesLayoutProps) {
   return (
-    <div className="grid gap-8 lg:grid-cols-[260px_1fr]">
-
-      <NotesSidebar />
-
+    <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 p-6">
       {children}
-
     </div>
   );
 }

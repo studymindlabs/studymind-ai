@@ -1,31 +1,24 @@
 import {
+  NotesLayout,
   NotesHeader,
-  NotesToolbar,
-  PinnedNotes,
-  FavoriteNotes,
-  NotesList,
+  NotesSearch,
+  NotesFilter,
+  NotesGrid,
+  NotesPagination,
 } from "@/components/features/notes";
-
-import NotesLayout from "@/components/features/notes/notes-layout";
 
 export default function NotesPage() {
   return (
     <NotesLayout>
+      <NotesHeader />
 
-      <div className="space-y-10">
+      <NotesSearch />
 
-        <NotesHeader />
+      <NotesFilter />
 
-        <NotesToolbar />
+      <NotesGrid />
 
-        <PinnedNotes />
-
-        <FavoriteNotes />
-
-        <NotesList />
-
-      </div>
-
+      <NotesPagination />
     </NotesLayout>
   );
 }
