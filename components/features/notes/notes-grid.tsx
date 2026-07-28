@@ -1,33 +1,26 @@
-"use client";
-
+import type { Note } from "@/types/note";
 import NotesCard from "./notes-card";
+import EmptyState from "./empty-state";
 
-export default function NotesGrid() {
+type NotesGridProps = {
+  notes: Note[];
+};
+
+export default function NotesGrid({
+  notes,
+}: NotesGridProps) {
+  if (notes.length === 0) {
+    return <EmptyState />;
+  }
+
   return (
     <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-
-      <NotesCard
-        title="Physics Chapter 1"
-        preview="Force, motion and Newton's laws summary..."
-        updatedAt="Edited 15 min ago"
-        category="Physics"
-        favorite
-      />
-
-      <NotesCard
-        title="Biology Notes"
-        preview="Cell structure and functions..."
-        updatedAt="Yesterday"
-        category="Biology"
-      />
-
-      <NotesCard
-        title="Mathematics"
-        preview="Important integration formulas..."
-        updatedAt="2 days ago"
-        category="Math"
-      />
-
+      {notes.map((note) => (
+        <NotesCard
+          key={note.id}
+          note={note}
+        />
+      ))}
     </div>
   );
 }

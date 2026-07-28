@@ -3,60 +3,47 @@
 import { Search } from "lucide-react";
 
 type NotesSearchProps = {
-  placeholder?: string;
+  value: string;
+  onSearchChange: (value: string) => void;
 };
 
 export default function NotesSearch({
-  placeholder = "Search notes...",
+  value,
+  onSearchChange,
 }: NotesSearchProps) {
   return (
     <div className="relative">
-
       <Search
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
         size={18}
+        className="
+          absolute
+          left-4
+          top-1/2
+          -translate-y-1/2
+          text-zinc-500
+        "
       />
 
       <input
         type="text"
-        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onSearchChange(e.target.value)}
+        placeholder="Search notes..."
         className="
-          h-12
           w-full
           rounded-xl
           border
           border-zinc-800
           bg-zinc-900
+          py-3
           pl-11
-          pr-20
-          text-sm
+          pr-4
           text-white
-          placeholder:text-zinc-500
           outline-none
           transition
           focus:border-blue-500
         "
       />
-
-      <div
-        className="
-          absolute
-          right-3
-          top-1/2
-          -translate-y-1/2
-          rounded-md
-          border
-          border-zinc-700
-          bg-zinc-800
-          px-2
-          py-1
-          text-xs
-          text-zinc-400
-        "
-      >
-        Ctrl K
-      </div>
-
     </div>
   );
 }

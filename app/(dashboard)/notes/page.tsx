@@ -1,3 +1,9 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
+import { mockNotes } from "@/constants/mock-notes";
+
 import {
   NotesLayout,
   NotesHeader,
@@ -8,15 +14,39 @@ import {
 } from "@/components/features/notes";
 
 export default function NotesPage() {
+  const [search, setSearch] = useState("");
+
+  const filteredNotes = useMemo(() => {
+    const keyword = search.trim().toLowerCase();
+
+    if (!keyword) {
+      return mockNotes;
+    }
+
+    return mockNotes.filter((note) => {
+      return (
+        note.title.toLowerCase().includes(keyword) ||
+        note.content.toLowerCase().includes(keyword) ||
+        (note.summary ?? "").toLowerCase().includes(keyword) ||
+        (note.folder ?? "").toLowerCase().includes(keyword)
+      );
+    });
+  }, [search]);
+
   return (
     <NotesLayout>
       <NotesHeader />
 
-      <NotesSearch />
+      <NotesSearch
+        value={search}
+        onSearchChange={setSearch}
+      />
 
       <NotesFilter />
 
-      <NotesGrid />
+      <NotesGrid
+        notes={filteredNotes}
+      />
 
       <NotesPagination />
     </NotesLayout>

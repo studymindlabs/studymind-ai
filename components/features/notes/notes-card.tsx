@@ -1,21 +1,15 @@
 "use client";
 
-import { MoreHorizontal, Star } from "lucide-react";
+import { MoreHorizontal, Pin, Star } from "lucide-react";
+
+import type { Note } from "@/types/note";
 
 type NotesCardProps = {
-  title: string;
-  preview: string;
-  updatedAt: string;
-  category: string;
-  favorite?: boolean;
+  note: Note;
 };
 
 export default function NotesCard({
-  title,
-  preview,
-  updatedAt,
-  category,
-  favorite = false,
+  note,
 }: NotesCardProps) {
   return (
     <div
@@ -36,11 +30,11 @@ export default function NotesCard({
         <div>
 
           <h3 className="text-lg font-semibold text-white">
-            {title}
+            {note.title}
           </h3>
 
           <p className="mt-1 text-xs text-zinc-500">
-            {updatedAt}
+            {note.updatedAt}
           </p>
 
         </div>
@@ -55,7 +49,7 @@ export default function NotesCard({
       </div>
 
       <p className="mt-4 line-clamp-3 text-sm text-zinc-400">
-        {preview}
+        {note.summary ?? note.content}
       </p>
 
       <div className="mt-6 flex items-center justify-between">
@@ -70,15 +64,26 @@ export default function NotesCard({
             text-zinc-300
           "
         >
-          {category}
+          {note.folder ?? "General"}
         </span>
 
-        {favorite && (
-          <Star
-            size={16}
-            className="fill-yellow-400 text-yellow-400"
-          />
-        )}
+        <div className="flex items-center gap-2">
+
+          {note.pinned && (
+            <Pin
+              size={15}
+              className="text-blue-400"
+            />
+          )}
+
+          {note.favorite && (
+            <Star
+              size={16}
+              className="fill-yellow-400 text-yellow-400"
+            />
+          )}
+
+        </div>
 
       </div>
 
