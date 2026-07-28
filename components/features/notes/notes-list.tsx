@@ -1,30 +1,26 @@
-import NoteCard from "./note-card";
+import { useNotesStore } from "@/lib/stores/notes-store";
 
-const notes = [
-  {
-    id: "1",
-    title: "AI Prompt Engineering",
-    preview:
-      "Learn how to write effective prompts for ChatGPT, Gemini and Claude.",
-    updatedAt: "Today",
-  },
-  {
-    id: "2",
-    title: "Physics Chapter 5",
-    preview:
-      "Important formulas, derivations and solved examples collected by AI.",
-    updatedAt: "Yesterday",
-  },
-  {
-    id: "3",
-    title: "Business Strategy",
-    preview:
-      "AI generated business planning notes with SWOT analysis.",
-    updatedAt: "2 days ago",
-  },
-];
+import NotesGrid from "./notes-grid";
 
 export default function NotesList() {
+  const notes = useNotesStore((state) => state.notes);
+
+  const toggleFavorite = useNotesStore(
+    (state) => state.toggleFavorite
+  );
+
+  const togglePin = useNotesStore(
+    (state) => state.togglePin
+  );
+
+  const deleteNote = useNotesStore(
+    (state) => state.deleteNote
+  );
+
+  const setEditingNote = useNotesStore(
+    (state) => state.setEditingNote
+  );
+
   return (
     <section className="space-y-5">
 
@@ -32,16 +28,13 @@ export default function NotesList() {
         Recent Notes
       </h2>
 
-      <div className="space-y-5">
-
-        {notes.map((note) => (
-          <NoteCard
-            key={note.id}
-            {...note}
-          />
-        ))}
-
-      </div>
+      <NotesGrid
+        notes={notes}
+        onFavoriteToggleAction={toggleFavorite}
+        onPinToggleAction={togglePin}
+        onDeleteNoteAction={deleteNote}
+        onEditNoteAction={setEditingNote}
+      />
 
     </section>
   );

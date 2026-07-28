@@ -1,38 +1,42 @@
 "use client";
 
-const filters = [
+const folders = [
   "All",
-  "Recent",
-  "Favorites",
-  "Archived",
+  "AI",
+  "Backend",
+  "Programming",
 ];
 
-export default function NotesFilter() {
+type NotesFilterProps = {
+  selectedFolder: string;
+  onFolderChangeAction: (folder: string) => void;
+};
+
+export default function NotesFilter({
+  selectedFolder,
+  onFolderChangeAction,
+}: NotesFilterProps) {
   return (
     <div className="flex flex-wrap gap-3">
+      {folders.map((folder) => {
+        const active = selectedFolder === folder;
 
-      {filters.map((filter, index) => (
-        <button
-          key={filter}
-          className={`
-            rounded-lg
-            border
-            px-4
-            py-2
-            text-sm
-            transition-all
-
-            ${
-              index === 0
-                ? "border-blue-500 bg-blue-600 text-white"
-                : "border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-white"
-            }
-          `}
-        >
-          {filter}
-        </button>
-      ))}
-
+        return (
+          <button
+            key={folder}
+            type="button"
+            onClick={() => onFolderChangeAction(folder)}
+            className={[
+              "rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200",
+              active
+                ? "bg-blue-600 text-white"
+                : "bg-zinc-900 text-zinc-400 hover:bg-zinc-800",
+            ].join(" ")}
+          >
+            {folder}
+          </button>
+        );
+      })}
     </div>
   );
 }

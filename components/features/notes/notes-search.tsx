@@ -4,12 +4,12 @@ import { Search } from "lucide-react";
 
 type NotesSearchProps = {
   value: string;
-  onSearchChange: (value: string) => void;
+  onSearchChangeAction: (value: string) => void;
 };
 
 export default function NotesSearch({
   value,
-  onSearchChange,
+  onSearchChangeAction,
 }: NotesSearchProps) {
   return (
     <div className="relative">
@@ -27,7 +27,7 @@ export default function NotesSearch({
       <input
         type="text"
         value={value}
-        onChange={(e) => onSearchChange(e.target.value)}
+        onChange={(e) => onSearchChangeAction(e.target.value)}
         placeholder="Search notes..."
         className="
           w-full

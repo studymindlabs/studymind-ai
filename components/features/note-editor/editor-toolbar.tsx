@@ -1,79 +1,85 @@
 "use client";
 
-import {
-  Bold,
-  Italic,
-  Underline,
-  Strikethrough,
-  Heading1,
-  Heading2,
-  List,
-  ListOrdered,
-  Quote,
-  Code2,
-  Link2,
-  Image,
-  Table,
-  Minus,
-} from "lucide-react";
+import { RotateCcw, Save } from "lucide-react";
 
-const tools = [
-  Bold,
-  Italic,
-  Underline,
-  Strikethrough,
-  Minus,
-  Heading1,
-  Heading2,
-  List,
-  ListOrdered,
-  Quote,
-  Code2,
-  Link2,
-  Image,
-  Table,
-];
+type EditorToolbarProps = {
+  hasChanges: boolean;
+  onSaveAction: () => void;
+  onCancelAction: () => void;
+};
 
-export default function EditorToolbar() {
+export default function EditorToolbar({
+  hasChanges,
+  onSaveAction,
+  onCancelAction,
+}: EditorToolbarProps) {
   return (
     <div
       className="
-        sticky
-        top-0
-        z-20
         flex
-        flex-wrap
-        gap-2
-        rounded-3xl
+        items-center
+        justify-between
+        rounded-2xl
         border
         border-zinc-800
-        bg-zinc-900/90
+        bg-zinc-900
         p-4
-        backdrop-blur-xl
       "
     >
-      {tools.map((Icon, index) => (
+      <div className="text-sm text-zinc-400">
+        {hasChanges
+          ? "Unsaved changes"
+          : "All changes saved"}
+      </div>
+
+      <div className="flex gap-3">
         <button
-          key={index}
           type="button"
+          onClick={onCancelAction}
           className="
             flex
-            h-10
-            w-10
             items-center
-            justify-center
+            gap-2
             rounded-xl
-            text-zinc-400
-            transition-all
-            duration-200
-            hover:bg-blue-600
-            hover:text-white
-            active:scale-95
+            border
+            border-zinc-700
+            px-4
+            py-2
+            text-sm
+            text-zinc-300
+            transition
+            hover:bg-zinc-800
           "
         >
-          <Icon size={18} />
+          <RotateCcw size={16} />
+          Cancel
         </button>
-      ))}
+
+        <button
+          type="button"
+          onClick={onSaveAction}
+          disabled={!hasChanges}
+          className="
+            flex
+            items-center
+            gap-2
+            rounded-xl
+            bg-blue-600
+            px-5
+            py-2
+            text-sm
+            font-medium
+            text-white
+            transition
+            hover:bg-blue-700
+            disabled:cursor-not-allowed
+            disabled:opacity-50
+          "
+        >
+          <Save size={16} />
+          Save
+        </button>
+      </div>
     </div>
   );
 }
