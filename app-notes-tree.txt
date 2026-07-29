@@ -1,0 +1,11 @@
+Folder PATH listing
+Volume serial number is 0000023E 7080:C308
+C:\USERS\LT\DESKTOP\STUDYMIND PROJECTS\STUDYMIND-AI\APP\(DASHBOARD)\NOTES
+|   page.tsx
+|   
++---new
+|       page.tsx
+|       
+\---[id]
+        page.tsx
+        

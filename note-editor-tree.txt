@@ -1,0 +1,23 @@
+Folder PATH listing
+Volume serial number is 0000019B 7080:C308
+C:\USERS\LT\DESKTOP\STUDYMIND PROJECTS\STUDYMIND-AI\COMPONENTS\FEATURES\NOTE-EDITOR
+|   ai-sidebar.tsx
+|   editor-content.tsx
+|   editor-header.tsx
+|   editor-toolbar.tsx
+|   index.ts
+|   note-editor-layout.tsx
+|   note-editor.constants.ts
+|   note-editor.types.ts
+|   
+\---editor
+        editor-config.ts
+        editor-content.tsx
+        editor-instance.ts
+        editor-placeholder.tsx
+        editor-provider.tsx
+        editor-shell.tsx
+        editor-toolbar.tsx
+        editor.types.ts
+        index.ts
+        

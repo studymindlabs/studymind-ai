@@ -1,0 +1,57 @@
+Folder PATH listing
+Volume serial number is 000001D7 7080:C308
+C:\USERS\LT\DESKTOP\STUDYMIND PROJECTS\STUDYMIND-AI\LIB
+|   utils.ts
+|   
++---auth
+|       auth.service.ts
+|       auth.types.ts
+|       cookies.ts
+|       index.ts
+|       jwt.ts
+|       password.ts
+|       session.ts
+|       
++---db
+|       index.ts
+|       prisma.ts
+|       
++---generated
+|   \---prisma
+|       |   browser.ts
+|       |   client.ts
+|       |   commonInputTypes.ts
+|       |   enums.ts
+|       |   models.ts
+|       |   
+|       +---internal
+|       |       class.ts
+|       |       prismaNamespace.ts
+|       |       prismaNamespaceBrowser.ts
+|       |       
+|       \---models
+|               User.ts
+|               
++---hooks
++---repositories
+|       index.ts
+|       notes.repository.ts
+|       user.repository.ts
+|       
++---services
+|       auth.service.ts
+|       index.ts
+|       notes.service.ts
+|       
++---stores
+|       notes-store.ts
+|       
++---utils
+|       create-note.ts
+|       index.ts
+|       
+\---validations
+        index.ts
+        login.schema.ts
+        register.schema.ts
+        

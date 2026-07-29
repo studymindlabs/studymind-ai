@@ -1,0 +1,23 @@
+Folder PATH listing
+Volume serial number is 000001AC 7080:C308
+C:\USERS\LT\DESKTOP\STUDYMIND PROJECTS\STUDYMIND-AI\COMPONENTS\FEATURES\NOTES
+    create-note-button.tsx
+    empty-state.tsx
+    favorite-note-card.tsx
+    favorite-notes.tsx
+    folder-item.tsx
+    index.ts
+    notes-card.tsx
+    notes-filter.tsx
+    notes-grid.tsx
+    notes-header.tsx
+    notes-layout.tsx
+    notes-list.tsx
+    notes-pagination.tsx
+    notes-search.tsx
+    notes-sidebar.tsx
+    pinned-note-card.tsx
+    pinned-notes.tsx
+    
+No subfolders exist 
+
